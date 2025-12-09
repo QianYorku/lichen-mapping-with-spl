@@ -1,7 +1,8 @@
+````markdown
 # Lichen mapping with Single Photon LiDAR (SPL)
 Open-source Python workflow for lichen mapping facilitated by Single-Photon LiDAR (SPL).
 
-## Overview
+## **Overview**
 This repository provides a reproducible workflow for lichen mapping facilitated by Single Photon LiDAR (SPL) in boreal mixedwood forests.  
 It implements a modular Python pipeline for:
 
@@ -15,7 +16,7 @@ The code is designed as an open, self-contained project guide so that researcher
 
 ---
 
-## Repository structure
+## **Repository structure**
 
 ```text
 lichen-mapping-with-spl/
@@ -41,12 +42,13 @@ lichen-mapping-with-spl/
 ├─ requirements.txt
 ├─ .gitignore
 └─ LICENSE
+````
 
-## Scripts overview
+## **Scripts overview**
 
 All Python scripts are in `src/`:
 
-#### `verify_and_convert_coords_for_clipping.py`
+### **`verify_and_convert_coords_for_clipping.py`**
 
 Cleans and validates the plot coordinate table (CSV).
 
@@ -63,7 +65,7 @@ Outputs:
 
 ---
 
-#### `clip_plots_20m.py`
+### **`clip_plots_20m.py`**
 
 Uses the cleaned coordinate CSV and the original SPL CHM/LAZ tiles.
 
@@ -82,7 +84,7 @@ In this repository, you start from already clipped demo plots in `data/demo_clip
 
 ---
 
-#### `itc_delineation_and_plot_features.py`
+### **`itc_delineation_and_plot_features.py`**
 
 Batch ITC detection and crown delineation when CHM and LAZ are in the same folder.
 
@@ -114,7 +116,7 @@ Automatically pairs files such as:
 
 ---
 
-#### `plot_chm_laz_features.py`
+### **`plot_chm_laz_features.py`**
 
 Extracts plot-level LiDAR features directly from CHM rasters and LAZ point clouds.
 
@@ -143,7 +145,7 @@ Uses filename patterns like:
 
 ---
 
-#### `lichen_models_rf_logit_svm.py`
+### **`lichen_models_rf_logit_svm.py`**
 
 Builds and evaluates lichen presence models using:
 
@@ -170,9 +172,9 @@ Assumes the feature table has a binary column `lichen_presence`.
 
 ---
 
-**## Installation**
+## **Installation**
 
-#### 1. Create a Python environment
+### **1. Create a Python environment**
 
 It is recommended to use `conda` or `mamba`:
 
@@ -181,7 +183,7 @@ conda create -n spl_lichen python=3.10
 conda activate spl_lichen
 ```
 
-#### 2. Install dependencies
+### **2. Install dependencies**
 
 From the repository root:
 
@@ -193,7 +195,7 @@ If you encounter issues with `rasterio` or `geopandas`, you may install them via
 
 ---
 
-## Demo data
+## **Demo data**
 
 Small demo clipped plots (e.g., `DEMO001_CHM_20m.tif`, `DEMO001_LAZ_20m.laz`) are provided under:
 
@@ -208,9 +210,9 @@ The full SPL tiles and the original plot coordinate CSV used in the real project
 
 ---
 
-## Example workflow
+## **Example workflow**
 
-### 1. ITC delineation and ITC-based plot features
+### **1. ITC delineation and ITC-based plot features**
 
 ```bash
 python src/itc_delineation_and_plot_features.py
@@ -227,7 +229,7 @@ Outputs will be written to `outputs/itc_delineation/`.
 
 ---
 
-### 2. Plot-level CHM + LAZ features
+### **2. Plot-level CHM + LAZ features**
 
 ```bash
 python src/plot_chm_laz_features.py
@@ -244,7 +246,7 @@ You can merge this table with your own lichen ground truth to add a `lichen_pres
 
 ---
 
-### 3. Lichen presence modeling
+### **3. Lichen presence modeling**
 
 After adding a `lichen_presence` column to `lichen_features.csv`, run:
 
@@ -261,7 +263,7 @@ out_dir   = "outputs/lichen_models"
 
 ---
 
-## Data and privacy notes
+## **Data and privacy notes**
 
 * The coordinate CSV and full SPL datasets used in the original project are not shared here due to size and licensing constraints.
 * The pipeline is provided so that other users can run the workflow end-to-end on their own data.
