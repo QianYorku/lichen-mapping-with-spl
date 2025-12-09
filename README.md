@@ -170,7 +170,7 @@ Assumes the feature table has a binary column `lichen_presence`.
 
 ---
 
-## Installation
+**## Installation**
 
 #### 1. Create a Python environment
 
