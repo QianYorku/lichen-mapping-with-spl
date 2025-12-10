@@ -205,3 +205,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ==== Project-specific ignores (lichen-mapping-with-spl) ====
+
+# Ignore all large data, but keep only small demo clipped plots
+data/*
+!data/demo_clipped_plots/
+!data/demo_clipped_plots/*.tif
+!data/demo_clipped_plots/*.laz
+
+# Ignore all outputs, but keep the placeholder file so the folder exists
+outputs/*
+!outputs/.gitkeep
